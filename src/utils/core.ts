@@ -68,6 +68,11 @@ function applyAttr(dom, attrs = {}) {
     }
 }
 
+// type: update, remove, add, position: [0][0][1] => [0,0,1] : 3 dimensions in one array
+function diff() {
+
+}
+
 function renderUtil(domList, parentElement) {
     let root = parentElement;
     for (let dom of domList) {
