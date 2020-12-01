@@ -46,25 +46,24 @@ function defineObjectAttr(vm, key, value) {
   })
 }
 
+export class Tik{
+  constructor({data, template}) {
+    this.template = template;
+    this.$data = {};
+    Object.keys(data).forEach(key => defineObjectAttr(this.$data, key, data[key]));
 
-export function Tik({
-                      data, template
-                    }) {
-  this.$data = {};
-  Object.keys(data).forEach(key => defineObjectAttr(this.$data, key, data[key]));
+    this.$setData = function (key, value) {
+      this.$data[key] = value;
+    };
+  }
 
-  this.$setData = function (key, value) {
-    this.$data[key] = value;
-  };
-  return {
-    mount: element => {
-      if (typeof element === "string" && element[0] === '#') {
-        element = document.getElementById(element.slice(1));
-      } else if (!element.nodeType || element.nodeType !== 1) {
-        throw Error("mount element need id or html element node");
-      }
-      renderUtil(template, element);
-      return this;
+  mount(element) {
+    if (typeof element === "string" && element[0] === '#') {
+      element = document.getElementById(element.slice(1));
+    } else if (!element.nodeType || element.nodeType !== 1) {
+      throw Error("mount element need id or html element node");
     }
+    renderUtil(this.template, element);
+    return this;
   }
 }

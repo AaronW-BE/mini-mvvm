@@ -2,8 +2,7 @@
   "compilerOptions": {
     "outDir": "./dist/",
     "sourceMap": true,
-    "noImplicitAny": true,
-    "module": "es6",
+    "noImplicitAny": false,
     "target": "ES5",
     "allowJs": true
   }

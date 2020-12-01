@@ -13,3 +13,9 @@
     background-color: #fff;
     margin-top: 10px;
 }
+
+.caption {
+    font-size: 32px;
+    text-align: center;
+    color: #1cb483;
+}
