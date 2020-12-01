@@ -1,5 +1,5 @@
-import {log} from "./utils/log";
 import {h, Tik} from "./utils/utils";
+import './index.css';
 
 const domList = [
   {
